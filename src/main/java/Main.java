@@ -2,8 +2,11 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static final HttpStatusChecker checker = new HttpStatusChecker();
+    private static final HttpStatusImageDownloader httpStatusImageDownloader = new HttpStatusImageDownloader();
+    private static final HttpImageStatusCli httpImageStatusCli = new HttpImageStatusCli();
+
     public static void main(String[] args) throws Exception {
-        HttpStatusChecker checker = new HttpStatusChecker();
 
         try {
             String imageUrl1 = checker.getStatusImage(200);
@@ -22,8 +25,6 @@ public class Main {
         }
 
         System.out.println("=============================================");
-
-        HttpStatusImageDownloader httpStatusImageDownloader = new HttpStatusImageDownloader();
 
         try {
             System.out.println("Launch Test 1: download cat 200...");
@@ -47,8 +48,6 @@ public class Main {
         }
 
         System.out.println("=============================================");
-
-        HttpImageStatusCli httpImageStatusCli = new HttpImageStatusCli();
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
